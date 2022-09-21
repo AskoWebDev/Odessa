@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+	mode: 'development',
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'static/frontend'),
@@ -16,17 +17,21 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.s[ac]ss$/i,
+				test: /\.(s[ac]ss|less|css)$/i,
 				use: [
 					"style-loader",
 					"css-loader",
 					"sass-loader",
+					"postcss-loader",
+					
 				],
+			},
+			{
+				test: /\.(png|jpg|gir)$/i,
+				type: 'asset/resource'
 			},
 		]
 	},
-	devServer: {
-		historyApiFallback: true,
-	},
+	
 	
 }

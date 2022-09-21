@@ -1,26 +1,24 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import Layout from './Layout';
-import Header from './Header';
-
+import Apps from './App.module.scss';
+import image from '/static/images/museum.jpg';
 
 function App() {
-	
-
-
 	return(
-		<div>
-			<BrowserRouter>
-		      <Routes>
-		        <Route path="/" element={<Layout />}>
-		          <Route path="header" element={<Header />} />
-		          <Route path="home" element={<Home />} />
-		        </Route>
-		      </Routes>
-		    </BrowserRouter>
+		<div className={Apps.container}>
+			<p><i>Старая Одесса...</i> О ней столько написано, что уже начинаешь подозревать, не легенда ли это, 
+			не красивый ли миф, не сказка ли? 
+			А был ли этот город на самом деле, тот самый, воспетый поколениями писателей и поэтов и снящийся нам по ночам? 
+			Пожалуй, никто сегодня не сможет утвердительно ответить на это. 
+			Но что-то все-таки было, и это что-то осталось не только там, где его невозможно увидеть, 
+			в легко написанных книгах или в памяти не желающих умирать стариков, но и там, где оно отчетливо видимо и до двумерности зримо. 
+			Старые фотографии, они донесли до нас легкое дыхание этого города. 
+			Идите по нему, рассматривайте его здания, памятники, храмы, и может быть, вам у мгновение дастся науслышать 
+			шум конки на Греческой, крики торговцев на Старом базаре, 
+			или удары волн о скалы Ланжерона.</p>
+			<img src={image} />
 		</div>
-	);
+	)
 }
 
 export default App;

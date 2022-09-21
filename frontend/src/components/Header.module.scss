@@ -1,0 +1,23 @@
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgba(0, 0, 0, .2);
+	height: 60px;
+	margin-bottom: 2rem;
+
+	h1 {
+		font-family: 'Pattaya', sans-serif;;
+		font-size: 40px;
+		font-weight: 400;
+		margin: 0 2rem;
+
+	}
+	.btn {
+		display: flex;
+		justify-content: space-around;
+		height: 60%;
+		width: 20rem;
+		
+	}
+} 

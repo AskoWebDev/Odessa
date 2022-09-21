@@ -6,3 +6,6 @@ class City(models.Model):
 	street = models.CharField(max_length=250)
 	country = models.CharField(max_length=250)
 	created = models.DateTimeField(auto_now_add=True)
+
+class Share(models.Model):
+	text = models.TextField()

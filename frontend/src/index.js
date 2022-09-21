@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './components/App';
+import Nav from './components/Nav';
+import Header from './components/Header';
 
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Header />
+    <Nav />
   </React.StrictMode>
 );

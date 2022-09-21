@@ -1,24 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Homes from './Home.module.scss';
 
 function Home() {
-	let [data, setData] = useState([])
-
-	useEffect(() => {
-		fetch("list")
-		.then(response => response.json())
-		.then(data => setData(data))
-	})
-
-	return (
-		<ul>
-			{data.map(info => {
-				return (
-					<li key={info.id}>
-						{info.name} - {info.age}
-					</li>
-				)
-			})}
-		</ul>
+	return(
+		<div className={Homes.container}>
+			<h1>Страница для истории домов</h1>
+		</div>
 	)
 }
 
