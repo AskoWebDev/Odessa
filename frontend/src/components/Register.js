@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Navigate } from 'react';
 import Align from './Register.module.scss';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -28,6 +28,8 @@ function Register() {
 		setEmail(value)
 	}
 
+	
+
 	// Makes POST request to server
 	function handle(e) {
 		e.preventDefault()
@@ -47,13 +49,16 @@ function Register() {
 		}; 
 		fetch('auth/djoser/users/', requestOption).then(response => {
 			if (response.ok) {
+				
 				console.log('ok')
 			} else {
+				flag = false
 				console.log('not ok')
 			}
 		})
 		
 	}
+	
 
 	return(
 		<div className={Align.container}>
@@ -63,6 +68,7 @@ function Register() {
 				<TextField variant="outlined" label="Электонная почта" onChange={myemail} />
 				<Button variant="contained" onClick={handle}>Зарегистрироваться</Button>
 			</form>
+
 		</div>
 	)
 };

@@ -9,3 +9,7 @@ class City(models.Model):
 
 class Share(models.Model):
 	text = models.TextField()
+
+class Home(models.Model):
+	home_text = models.TextField()
+	home_image = models.ImageField(null=True, blank=True, upload_to="images/")

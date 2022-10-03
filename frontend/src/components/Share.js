@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import ShareHis from './Share.module.scss';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-
+import AuthContext from './AuthContext';
 
 function Share() {
 	let [text, setText] = useState('');
@@ -12,6 +12,7 @@ function Share() {
 		setText(value)
 	}
 
+	
 	function handleSubmit(e) {
 		e.preventDefault()
 		console.log('submited')
@@ -28,6 +29,7 @@ function Share() {
 		fetch('http://127.0.0.1:8000/share/add/', requestOpt).then(response => {
 			if (response.ok) {
 				console.log('ok')
+				
 			} else {
 				console.log('not ok')
 			}
@@ -48,21 +50,23 @@ function Share() {
 		// 	}
 		// })
 	}	
-
+	
 	return(
+		
 		<div className={ShareHis.container}>
 			<form >
 				<TextField 
+				multiline
+				rows={4}
 				variant="outlined" 
 				label="Поделись историей" 
 				onChange={handleChange}
 				/><br />
 				<Button variant="contained" onClick={handleSubmit}>Отправить</Button>
-				<p>{text}</p>
+				
 			</form> 
-
-
-		</div>
+			
+		</div>	
 	)
 }
 

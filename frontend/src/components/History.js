@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Histories from './History.module.scss'
+import React, { useContext, useState, useEffect } from 'react';
+import Histories from './History.module.scss';
+
+
 
 function History() {
 	const [info, setInfo] = useState([]);
@@ -9,11 +11,13 @@ function History() {
 		.then(response => response.json())
 		.then(data => setInfo(() => {
 			return data
-		})) 
+		}))
+		
 	})
 
 	return(
 		<div className={Histories.container}>
+
 			<h1>Страница для разных историй</h1>
 			<ul>
 				{info.map(e => {
@@ -24,6 +28,7 @@ function History() {
 					);
 				})}
 			</ul>
+			
 		</div>
 	);
 }

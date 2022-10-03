@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link, Outlet, BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 import App from './App';
@@ -8,23 +8,30 @@ import Street from './Street';
 import Share from './Share';
 import Register from './Register';
 import Enter from './Enter';
-// import './Nav.module.scss'
+import {AuthProvider} from './AuthContext';
+import PrivateRoute from './utils/PrivateRoute';
+import Style from './Nav.module.scss';
 
 function Nav() {
 	return(
-		<div className='container'>
+		<div className={Style.container}>
 			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<Layout />}>
-						<Route index element={<App />} />
-						<Route path="home" element={<Home />} />
-						<Route path="history" element={<History />} />
-						<Route path="street" element={<Street />} />
-						<Route path="share" element={<Share />} />
-						<Route path="register" element={<Register />} />
-						<Route path="enter" element={<Enter />} />
-					</Route>
-				</Routes>
+				<AuthProvider>
+					<Routes>
+						<Route path="/" element={<Layout />}>
+							<Route index element={<App />} />
+							<Route element={<PrivateRoute />}>
+								<Route path="share" element={<Share />} />
+								<Route path="street" element={<Street />} />
+							</Route>
+							<Route path="home" element={<Home />} />
+							<Route path="history" element={<History />} />
+							<Route path="register" element={<Register />} />
+							<Route path="enter" element={<Enter />} />
+							{/*<Route path="redirect" element={<Redirect />} />*/}
+						</Route>
+					</Routes>
+				</AuthProvider>
 			</BrowserRouter>
 		</div>
 	)

@@ -55,3 +55,10 @@ body {
 
 	}
 }
+
+// hides navbar when shrinking
+@media all and (max-width: 900px) {
+	.nav {
+		display: none;
+	}
+}

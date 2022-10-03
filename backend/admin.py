@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Share, Home, City
 
-# Register your models here.
+admin.site.register(Home)
+admin.site.register(City)
