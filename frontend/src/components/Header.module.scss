@@ -1,42 +1,81 @@
+
+
 .container {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	background-color: rgba(0, 0, 0, .2);
-	min-height: 60px;
+	min-height: 1rem;
 	margin-bottom: 2rem;
+	
 
 	h1 {
 		font-family: 'Pattaya', sans-serif;;
 		font-size: 40px;
 		font-weight: 400;
 		margin: 0 2rem;
-
 	}
 	.btn {
 		display: flex;
 		justify-content: space-around;
+		align-items: center;
 		height: 60%;
 		width: 20rem;
-		margin-right: 1rem;
+		margin: auto 1rem;
+
 	}
 	.second {
 		display: flex;
 		justify-content: space-around;
 		width: 12rem;
 		align-items: center;
+		margin-right: 1rem;
+	}
 
+	// a button that appears when shrinkig the window
+	.toggleBtn {
+		all: unset;
+		display: none;
+		width: 30px;
+		height: 20px;
+		flex-direction: column;
+		justify-content: space-between;
+		margin: 1rem;
+		cursor: pointer;
+
+		.bar {
+			background-color: black;
+			height: 4px;
+			width: 100%;
+			border-radius: 10px;
+		}
 	}
 } 
 
-@media all and (max-width: 900px) {
+// hides navbar and shows menubar
+@media all and (max-width: 1100px) {
+	.container {
+		display: flex;
+		padding: 1rem;
+		margin: 0;
+
+		h1 {
+			margin: 0;
+		}
+
+		.toggleBtn {
+			display: inline-flex;
+			padding: 0;
+			
+		}
+	
+	}	
+}
+
+@media all and (max-width: 700px) {
 	.container {
 		display: flex;
 		flex-direction: column;
-		padding: 1rem;
+		align-items: center;
 
-		h1 {
-			margin-bottom: 7px;
-		}
-	}	
+	}
 }

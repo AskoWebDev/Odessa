@@ -6,14 +6,9 @@ import Nav from './components/Nav';
 import Header from './components/Header';
 import PrivateRoute from './components/utils/PrivateRoute';
 import {AuthProvider} from './components/AuthContext';
-
+import Main from './Main';
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
 root.render(
-  <React.StrictMode>
-    <AuthProvider>
-      <Header />
-    </AuthProvider>
-    <Nav />
-  </React.StrictMode>
+  <Main />
 );

@@ -1,12 +1,25 @@
 import React, {useContext} from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import Nav from './Layout.module.scss';
+import Toggle from './Layout.module.scss';
+import Main from './Layout.module.scss';
+import Bar from './Layout.module.scss';
+import Header from './Header';
+import ToggleContext from './utils/NavPrivateRoute';
 
 const Layout = () => {
+	let {isToggled} = useContext(ToggleContext)
+
+	const checkToggel = {
+		display: isToggled ? 'flex' : 'none'
+	}
+
+	console.log(isToggled)
 	return(
 		
-		<div className="container">
-			<nav className={Nav.nav}>
+		<div className={Main.container}>
+			
+			<nav className={Nav.nav} id="navigation" style={checkToggel}>
 				<ul>
 					<li>
 						<Link to="/">Главная</Link>
@@ -26,10 +39,9 @@ const Layout = () => {
 				</ul>
 			</nav>
 			<Outlet />
-		</div>
-
 		
-		
+			
+		</div>	
 	)
 };
 
