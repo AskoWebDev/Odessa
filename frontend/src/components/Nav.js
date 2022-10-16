@@ -12,6 +12,7 @@ import {AuthProvider} from './AuthContext';
 import PrivateRoute from './utils/PrivateRoute';
 import Style from './Nav.module.scss';
 import Header from './Header';
+import Photo from './Photos';
 import {NavPrivateRoute} from './utils/NavPrivateRoute';
 
 function Nav() {
@@ -29,6 +30,7 @@ function Nav() {
 						<Route path="history" element={<History />} />
 						<Route path="register" element={<Register />} />
 						<Route path="enter" element={<Enter />} />
+						<Route path="photo" element={<Photo />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

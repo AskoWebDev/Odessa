@@ -1,8 +1,10 @@
-import React, { useState, useEffect, Navigate } from 'react';
+import React, { useState, useEffect } from 'react';
 import Align from './Register.module.scss';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Cookies from 'js-cookie'
+import { Navigate } from 'react-router-dom';
+
 
 function Register() {
 	const [username, setUsername] = useState('');
@@ -12,7 +14,7 @@ function Register() {
 	// import django feature for safety reasons
 	const csrftoken = Cookies.get('csrftoken');
 
-	// Saving the input value
+	// Saving the input value from textfield
 	function name(e) {
 		const value = e.target.value
 		setUsername(value)
@@ -28,8 +30,8 @@ function Register() {
 		setEmail(value)
 	}
 
+	const [nav, setNav] = useState(false)
 	
-
 	// Makes POST request to server
 	function handle(e) {
 		e.preventDefault()
@@ -46,20 +48,21 @@ function Register() {
 				password,
 				email
 			})
-		}; 
-		fetch('auth/djoser/users/', requestOption).then(response => {
+		};
+		fetch('auth/djoser/users/', requestOption)
+		.then(response => {
 			if (response.ok) {
-				
-				console.log('ok')
+				setNav(true)
+				alert('Вы успешно зарегистрировались!')
 			} else {
-				flag = false
-				console.log('not ok')
+				alert('Произойшла ошибка, попробуйте ввести другие данные!')
 			}
 		})
-		
+
 	}
 	
 
+	
 	return(
 		<div className={Align.container}>
 			<form>
@@ -68,7 +71,7 @@ function Register() {
 				<TextField variant="outlined" label="Электонная почта" onChange={myemail} />
 				<Button variant="contained" onClick={handle}>Зарегистрироваться</Button>
 			</form>
-
+			{nav && <Navigate to="/enter" />}
 		</div>
 	)
 };

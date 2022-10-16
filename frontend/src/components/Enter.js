@@ -12,23 +12,17 @@ function Enter() {
 	
 	let {user, handle} = useContext(AuthContext)
 
-	// const load = () => {
-	// 	if (user) {
-	// 		document.location.reload()
-	// 	}
-
-	// }
+	
 		
 
 	return(
 		<div className={Style.container}>
 			<form onSubmit={handle}>
-				
 				<TextField variant="outlined" id="username" label="Имя" />
-				<TextField variant="outlined" id="password" label="Пароль"/>
+				<TextField variant="outlined" id="password" type="password" label="Пароль"/>
 				<Button variant="contained" type="submit" onClick={handle} >Войти</Button>
-
 			</form>
+			{user && <Navigate to="/" />}
 		</div>
 	)
 }

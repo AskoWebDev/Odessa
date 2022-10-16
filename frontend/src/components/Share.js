@@ -3,16 +3,20 @@ import ShareHis from './Share.module.scss';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import AuthContext from './AuthContext';
+import Cookies from 'js-cookie'
 
 function Share() {
 	let [text, setText] = useState('');
 
+	// sets the value of textfield
 	function handleChange(e) {
 		let value = e.target.value
 		setText(value)
 	}
 
-	
+	const csrftoken = Cookies.get('csrftoken');
+
+	// function that makes POST request to server
 	function handleSubmit(e) {
 		e.preventDefault()
 		console.log('submited')
@@ -20,7 +24,8 @@ function Share() {
 		const requestOpt = {
 			method: "POST",
 			headers: {
-				'Content-type': 'application/json'
+				'Content-type': 'application/json',
+				'X-CSRFToken': csrftoken
 			},
 			body: JSON.stringify({
 				text
@@ -28,27 +33,13 @@ function Share() {
 		}; 
 		fetch('http://127.0.0.1:8000/share/add/', requestOpt).then(response => {
 			if (response.ok) {
-				console.log('ok')
-				
+				alert('Ваша история успешно отправлена')
+				textarea.value = ''
 			} else {
 				console.log('not ok')
 			}
 		})
-		// fetch(url, {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-type': 'application/json',
-		// 	},
-		// 	body: JSON.stringify({
-		// 		'text': text
-		// 	})
-		// }).then(response => {
-		// 	if (response.ok) {
-		// 		console.log('ok')
-		// 	} else {
-		// 		console.log('not ok')
-		// 	}
-		// })
+
 	}	
 	
 	return(

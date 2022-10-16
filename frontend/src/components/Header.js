@@ -11,7 +11,6 @@ import Layout from './Layout';
 import NavPrivateRoute from './utils/NavPrivateRoute'; 
 import ToggleContext from './utils/NavPrivateRoute';
 
-// context cheking if button was cliked or not
 
 
 function Header() {

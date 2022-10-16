@@ -9,5 +9,5 @@ urlpatterns = [
 	path('share', index),
 	path('register', index),
 	path('enter', index),
-	
+	path('photo', index),
 ]

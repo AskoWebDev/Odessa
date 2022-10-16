@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-from .serializers import CitySerializer, ShareSerializer, HomeSerializer
-from .models import City, Share, Home
+from .serializers import MainSerializer, CitySerializer, ShareSerializer, HomeSerializer
+from .models import City, Share, Home, Main
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
@@ -26,6 +26,10 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
+class MainCreateList(generics.ListCreateAPIView):
+	queryset = Main.objects.all()
+	serializer_class = MainSerializer
+
 class CityCreateList(generics.ListCreateAPIView):
 	queryset = City.objects.all()
 	serializer_class = CitySerializer
@@ -46,11 +50,11 @@ class ShareList(generics.ListAPIView):
 	serializer_class = ShareSerializer
 	
 	
-class DeleteShare(generics.RetrieveUpdateDestroyAPIView):
-	queryset = Share.objects.all()
-	serializer_class = ShareSerializer
 
 class HomeCreateList(generics.ListCreateAPIView):
 	queryset = Home.objects.all()
 	serializer_class = HomeSerializer
 	
+class HomeDeleteSerializer(generics.RetrieveUpdateDestroyAPIView):
+	queryset = Home.objects.all()
+	serializer_class = HomeSerializer

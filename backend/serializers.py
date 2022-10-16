@@ -1,9 +1,14 @@
 from rest_framework import serializers
-from .models import City, Share, Home
+from .models import City, Share, Home, Main
 from djoser.serializers import UserCreateSerializer
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
+
+class MainSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Main
+		fields = '__all__'
 
 class CitySerializer(serializers.ModelSerializer):
 	class Meta:

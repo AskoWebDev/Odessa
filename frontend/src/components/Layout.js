@@ -5,16 +5,19 @@ import Toggle from './Layout.module.scss';
 import Main from './Layout.module.scss';
 import Bar from './Layout.module.scss';
 import Header from './Header';
+import Photo from './Photos';
 import ToggleContext from './utils/NavPrivateRoute';
 
 const Layout = () => {
 	let {isToggled} = useContext(ToggleContext)
 
+	// checks whether the 'isToggled' is true, 
+	// then set display to flex and vice versa
 	const checkToggel = {
 		display: isToggled ? 'flex' : 'none'
 	}
 
-	console.log(isToggled)
+	// all the website links 
 	return(
 		
 		<div className={Main.container}>
@@ -32,6 +35,9 @@ const Layout = () => {
 					</li>
 					<li>
 						<Link to="/history">Интересные истории</Link>
+					</li>
+					<li>
+						<Link to="/photo">Фото старой Одессы</Link>
 					</li>
 					<li>
 						<Link to="/share">Поделись историей</Link>
