@@ -42,8 +42,11 @@ const Layout = () => {
 					<li>
 						<Link to="/share">Поделись историей</Link>
 					</li>
+					
 				</ul>
 			</nav>
+			
+
 			<Outlet />
 		
 			

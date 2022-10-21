@@ -13,6 +13,7 @@ import PrivateRoute from './utils/PrivateRoute';
 import Style from './Nav.module.scss';
 import Header from './Header';
 import Photo from './Photos';
+import Book from './Book';
 import {NavPrivateRoute} from './utils/NavPrivateRoute';
 
 function Nav() {
@@ -31,6 +32,7 @@ function Nav() {
 						<Route path="register" element={<Register />} />
 						<Route path="enter" element={<Enter />} />
 						<Route path="photo" element={<Photo />} />
+						<Route path="book" element={<Book />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

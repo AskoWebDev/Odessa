@@ -49,8 +49,6 @@ class ShareList(generics.ListAPIView):
 	queryset = Share.objects.all()
 	serializer_class = ShareSerializer
 	
-	
-
 class HomeCreateList(generics.ListCreateAPIView):
 	queryset = Home.objects.all()
 	serializer_class = HomeSerializer

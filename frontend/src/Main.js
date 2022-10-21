@@ -8,6 +8,7 @@ import PrivateRoute from './components/utils/PrivateRoute';
 import {AuthProvider} from './components/AuthContext';
 import {NavPrivateRoute} from './components/utils/NavPrivateRoute';
 import Layout from './components/Layout';
+import Book from './components/Book';
 
 function Main() {
 	return(
