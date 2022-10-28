@@ -34,9 +34,9 @@ function Share() {
 		fetch('http://127.0.0.1:8000/share/add/', requestOpt).then(response => {
 			if (response.ok) {
 				alert('Ваша история успешно отправлена')
-				textarea.value = ''
+				
 			} else {
-				console.log('not ok')
+				alert('Произойшла ошибка, попробуйте снова')
 			}
 		})
 

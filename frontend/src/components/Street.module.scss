@@ -1,5 +1,18 @@
 .container {
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin: 0 25%;
 
-	
+	p {
+		font-size: 22px;
+		font-family: sans-serif;
+	}
+
+	.verse {
+		font-size: 30px;
+		color: rgba(0, 0, 0, .6);
+		margin-left: 2rem;
+		font-family: cursive;
+	}
 }
