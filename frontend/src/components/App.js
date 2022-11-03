@@ -37,12 +37,6 @@ function App() {
 					)
 				})}	
 			</div>
-			<div className={Buy.book}>
-				<img src="./static/images/1914293.jpeg"/>
-				<p>Эксклюзивная книга "Старая Одесса"</p>
-				<Button variant="contained" color="success" type="submit" onClick={() => {setNavToBook(true)}}>Купить</Button>
-				{navToBook && <Navigate to="/book" />}
-			</div>
 		</div>
 	)
 }

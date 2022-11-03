@@ -1,0 +1,16 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	img {
+		display: block;
+		margin: 1rem 0;
+		height: auto;
+		max-width: 100%;
+	}
+
+
+}
+

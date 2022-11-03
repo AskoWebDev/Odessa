@@ -5,11 +5,17 @@ function Home() {
 	const [info, setInfo] = useState([])
 
 	// fetching data from server
-	fetch('http://127.0.0.1:8000/home/add')
-	.then(response => response.json())
-	.then(data => setInfo(() => {
-		return data
-	}))
+	const data = async () =>  {
+		await fetch('http://127.0.0.1:8000/home/add')
+		.then(response => response.json())
+		.then(data => setInfo(() => {
+			return data
+		}))
+	}
+
+	useEffect(() => {
+		data()
+	}, [])
 	
 
 	return(

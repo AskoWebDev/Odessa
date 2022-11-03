@@ -112,9 +112,9 @@
 			
 			display: flex;
 			flex-direction: column;
-			align-items: center;
+			
 
-			width: 18rem;
+			
 			
 
 			h1 {
@@ -135,4 +135,17 @@
 		}
 	}
 
+}
+
+@media all and (max-width: 1100) {
+	.div {
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+
+		.cont {
+			margin: 0 auto;
+			flex-direction: column;
+		}
+	}
 }
